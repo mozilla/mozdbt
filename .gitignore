@@ -1,0 +1,8 @@
+dbt_packages/
+logs/
+env/
+target/
+.python-version
+venv/
+*.egg-info
+.user.yml
