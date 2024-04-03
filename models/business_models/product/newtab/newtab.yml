@@ -2,4 +2,4 @@ version: 2
 
 models:
   - name: newtab_visits
-    description: New Tab Visits
+    description: Visits on the newtab page, one row per visit per-day (identified by the visit id).
