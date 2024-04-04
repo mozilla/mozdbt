@@ -1,0 +1,10 @@
+logs/
+env/
+target/
+.python-version
+venv/
+*.egg-info
+.user.yml
+dbt_modules/
+dbt_packages/
+*.DS_Store
