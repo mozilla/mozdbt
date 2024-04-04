@@ -21,6 +21,8 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 models:
+  post-hook:
+    - "{{ create_latest_version_view() }}"
   mozdbt:
     moz-fx-data-shared-prod:
       +on_schema_change: "append_new_columns"
