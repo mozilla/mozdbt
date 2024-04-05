@@ -11,7 +11,7 @@ profile: 'mozdbt'
 model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
-data-paths: ["data"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -23,10 +23,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   post-hook:
     - "{{ create_latest_version_view() }}"
+    - "{{ apply_metadata() }}"
   mozdbt:
     moz-fx-data-shared-prod:
       +on_schema_change: "append_new_columns"
       +materialized: incremental
+      +labels:
+        repo: mozdbt
       business_models:
         +persist_docs:
           relation: true
