@@ -15,6 +15,9 @@
         {% set create_view_sql -%}
             -- this syntax may vary by data platform
             CREATE OR REPLACE VIEW {{ new_relation }}
+            OPTIONS (
+                description="{{ model.get('description', '') }}" || "\n\nhttps://github.com/mozilla/mozdbt/blob/main/models/" || "{{ model.path }}"
+            )
             AS SELECT * FROM {{ this }}
         {%- endset %}
         
