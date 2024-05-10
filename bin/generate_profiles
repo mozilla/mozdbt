@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -eo pipefail
+
+USERNAME=$(gcloud config get-value account | awk -F"@" '{print $1}')
+USERDATASET=dbt_$USERNAME
+sed "s/user_dataset/$USERDATASET/g" profiles.tmpl.yml | tee profiles.yml

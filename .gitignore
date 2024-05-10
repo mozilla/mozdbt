@@ -8,3 +8,4 @@ venv/
 dbt_modules/
 dbt_packages/
 *.DS_Store
+profiles.yml

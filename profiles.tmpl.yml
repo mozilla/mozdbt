@@ -1,13 +1,13 @@
 mozdbt:
   outputs:
     dev:
-      dataset: tmp
+      dataset: user_dataset
       job_execution_timeout_seconds: 300
       job_retries: 1
       location: US
       method: oauth
       priority: interactive
-      project: "{{ env_var('PROJECT_ID', 'moz-fx-data-shared-prod') }}"
+      project: moz-fx-data-shar-nonprod-efed
       threads: 1
       type: bigquery
   target: dev

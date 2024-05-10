@@ -25,17 +25,16 @@ models:
     - "{{ create_latest_version_view() }}"
     - "{{ apply_metadata() }}"
   mozdbt:
-    moz-fx-data-shared-prod:
-      +on_schema_change: "append_new_columns"
-      +materialized: incremental
-      +labels:
-        repo: mozdbt
-      business_models:
-        +persist_docs:
-          relation: true
-          columns: true
-        product:
-          firefox_desktop:
-            +schema: telemetry_derived
-          newtab:
-            +schema: analysis  # todo: change
+    +on_schema_change: "append_new_columns"
+    +materialized: incremental
+    +labels:
+      repo: mozdbt
+    business_models:
+      +persist_docs:
+        relation: true
+        columns: true
+      product:
+        firefox_desktop:
+          +schema: telemetry_derived
+        newtab:
+          +schema: analysis  # todo: change
