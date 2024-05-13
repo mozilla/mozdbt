@@ -30,7 +30,8 @@ WITH events_unnested AS (
     `moz-fx-data-shared-prod.firefox_desktop_stable.newtab_v1`,
     UNNEST(events)
   WHERE
-    category IN ('newtab', 'topsites', 'newtab.search', 'newtab.search.ad', 'pocket')
+    normalized_channel = 'nightly'
+    AND category IN ('newtab', 'topsites', 'newtab.search', 'newtab.search.ad', 'pocket')
     AND name IN (
       'closed',
       'opened',
@@ -41,7 +42,7 @@ WITH events_unnested AS (
       'topic_click',
       'dismiss'
     )
-    AND DATE(submission_timestamp) > "2024-03-30" -- limit backfill
+    AND DATE(submission_timestamp) > DATE_SUB(CURRENT_DATE(), INTERVAL 3 DAY) -- limit backfill
     {% if is_incremental() %}
     AND DATE(submission_timestamp) > (SELECT max(submission_date) FROM {{ this }} WHERE submission_date > '2020-01-01')
     {% endif %}
