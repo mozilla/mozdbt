@@ -2,6 +2,10 @@ name: 'mozdbt'
 version: '1.0.0'
 config-version: 2
 
+# Dbt-cloud config
+dbt-cloud:
+  project-id: 366411
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'mozdbt'
 
@@ -29,6 +33,7 @@ models:
     +materialized: incremental
     +labels:
       repo: mozdbt
+    +database: "{{ env_var('DBT_PROJECT_ID', 'moz-fx-data-shar-nonprod-efed') }}"
     business_models:
       +persist_docs:
         relation: true

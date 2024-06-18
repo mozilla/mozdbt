@@ -10,4 +10,5 @@ mozdbt:
       project: moz-fx-data-shar-nonprod-efed
       threads: 1
       type: bigquery
+      impersonate_service_account: external-dbt@moz-fx-data-shar-nonprod-efed.iam.gserviceaccount.com
   target: dev
