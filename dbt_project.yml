@@ -33,6 +33,7 @@ models:
     +materialized: incremental
     +labels:
       repo: mozdbt
+    +database: "{{ env_var('DBT_PROJECT_ID', 'moz-fx-data-shar-nonprod-efed') }}"
     business_models:
       +persist_docs:
         relation: true
