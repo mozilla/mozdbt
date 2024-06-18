@@ -2,6 +2,10 @@ name: 'mozdbt'
 version: '1.0.0'
 config-version: 2
 
+# Dbt-cloud config
+dbt-cloud:
+  project-id: 366411
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'mozdbt'
 
