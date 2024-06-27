@@ -10,8 +10,9 @@ authors = [
 description = "Mozilla's dbt project"
 readme = "README.md"
 requires-python = ">=3.10"
-dynamic = ["dependencies", "version"]
+dynamic = ["version"]
 
-[tool.setuptools.dynamic]
-dependencies = {file = ["requirements.in"]}
-
+dependencies = [
+  "dbt-bigquery==1.7.7",
+  "pip-tools==7.4.1"
+]
