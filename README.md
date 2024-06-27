@@ -3,4 +3,6 @@ Mozilla dbt models
 
 ## Local Development (dbt-core)
 
-To create your `profiles.yml` file, run `make setup`
+To install dependencies: `pip install -r requirements.txt`
+
+To create your `profiles.yml` file: `make setup`
