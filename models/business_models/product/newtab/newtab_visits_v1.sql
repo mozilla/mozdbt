@@ -321,7 +321,7 @@ client_profile_info AS (
   FROM
     `moz-fx-data-shared-prod.telemetry_derived.unified_metrics_v1`
   WHERE 
-    submission_date > "2024-03-30" -- limit backfill
+    AND submission_date > DATE_SUB(CURRENT_DATE(), INTERVAL 3 DAY) -- limit backfill
     {% if is_incremental() %}
     AND submission_date > (SELECT max(submission_date) FROM {{ this }} WHERE submission_date > '2020-01-01')
     {% endif %}
