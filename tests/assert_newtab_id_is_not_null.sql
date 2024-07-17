@@ -1,5 +1,5 @@
 SELECT
-   newtab_visit_id
+   *
 FROM
     {{ ref('newtab_visits') }}
 WHERE
