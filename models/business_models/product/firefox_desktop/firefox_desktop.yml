@@ -1,0 +1,8 @@
+models:
+  - name: latest_versions
+    latest_version: 1
+    description: Latest Firefox Desktop versions for all channels.
+    versions:
+      - v: 1
+    config:
+      publish_view: true
