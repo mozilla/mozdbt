@@ -44,7 +44,7 @@ WITH events_unnested AS (
     )
     AND DATE(submission_timestamp) > DATE_SUB(CURRENT_DATE(), INTERVAL 3 DAY) -- limit backfill
     {% if is_incremental() %}
-    AND DATE(submission_timestamp) > (SELECT max(submission_date) FROM {{ this }} WHERE submission_date > '2020-01-01')
+    AND DATE(submission_timestamp) > (SELECT max(submission_date) FROM {{ this }} WHERE submission_date > '2021-01-01')
     {% endif %}
 ),
 visit_metadata AS (
